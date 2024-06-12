@@ -13,6 +13,9 @@ In this lab, we will use GitHub Copilot to assist us in performing common R task
 ### Task 1: Generating Employee CSV Data
 We will start by generating a CSV file containing employee data. The data will include employee names, departments, and dates of join.
 
+<details>
+<summary>Reveal Code</summary>
+
 ```r
 # Generate employee data
 employee_data <- data.frame(
@@ -25,16 +28,26 @@ employee_data <- data.frame(
 write.csv(employee_data, "employee_data.csv", row.names = FALSE)
 ```
 
+</details>
+
 ### Task 2: Reading CSV Data into R
 Next, we will read the CSV data into R using the read.csv() function.
+
+<details>
+<summary>Reveal Code</summary>
 
 ```r
 # Read the CSV data into R
 employee_data <- read.csv("employee_data.csv")
 ```
 
+</details>
+
 ### Task 3: Data Manipulation and Analysis
 We will then perform some data manipulation and analysis tasks, such as adding new employees to the data, grouping the data by department, and calculating the count of employees in each department.
+
+<details>
+<summary>Reveal Code</summary>
 
 ```r
 # Add new employees to the data
@@ -50,8 +63,13 @@ employee_data <- rbind(employee_data, new_employees)
 employee_count <- table(employee_data$department)
 ```
 
+</details>
+
 ### Task 4: Data Visualization
 Finally, we will visualize the employee count data in a bar chart, add count labels to the bars, color the bars, and add a legend.
+
+<details>
+<summary>Reveal Code</summary>
 
 ```r
 # Define colors for each bar
@@ -66,6 +84,8 @@ text(x = bp, y = employee_count, label = employee_count, pos = 3, cex = 0.8, col
 # Add a legend
 legend("topright", legend = names(employee_count), fill = colors, cex = 0.8)
 ```
+
+</details>
 
 ### Conclusion
 In this lab, we used GitHub Copilot to assist us in performing common R tasks. We generated a CSV file containing employee data, read the data into R, performed some data manipulation and analysis, and visualized the data. We hope you found this lab helpful and learned something new!

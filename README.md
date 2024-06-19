@@ -50,5 +50,17 @@ In this task, you will interact with the OpenWeatherMap API to retrieve weather 
 
 Now see how you can use Copilot to improve your code.
 
+### Task 6: Predictive Modeling with R
+In this final task, you will use GitHub Copilot to assist you in building a predictive model using R. We will use the built-in mtcars dataset in R, which contains various car attributes and their corresponding miles per gallon (mpg).
+
+1. Data Exploration: Start by loading the mtcars dataset and use functions like str(), summary(), and head() to understand the structure of the data. Plot some basic graphs to visualize the data.
+2. Data Preprocessing: Check for missing values in the dataset. If there are any, handle them appropriately (e.g., by removing the rows with missing values or by imputing them). Also, if necessary, normalize or scale the data.
+3. Model Building: Split the dataset into a training set and a test set. Use the training set to build a linear regression model with mpg as the target variable and the other variables as predictors.
+4. Model Evaluation: Use the test set to evaluate the performance of the model. Calculate the mean squared error (MSE) and the coefficient of determination (R^2).
+5. Model Improvement: If the model's performance is not satisfactory, try to improve it. This could involve adding interaction terms, using a different model, or tuning the model's parameters.
+6. Prediction: Finally, use the model to make predictions on new data.
+
+Throughout this task, you can use GitHub Copilot to generate code snippets, suggest improvements, and provide explanations for the code. This will not only help you complete the task more efficiently, but also deepen your understanding of data science in R.
+
 ### Conclusion
 In this lab, we used GitHub Copilot to assist us in performing common R tasks. We hope you found this lab helpful and learned something new!

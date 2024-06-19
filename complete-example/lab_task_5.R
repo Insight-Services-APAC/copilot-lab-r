@@ -1,22 +1,34 @@
 # install.packages("httr")  # Uncomment this line if you haven't installed the httr package
 library(httr)
 
+# Constants
+BASE_URL_GEO <- "http://api.openweathermap.org/geo/1.0/direct"
+BASE_URL_WEATHER <- "https://api.openweathermap.org/data/2.5/weather"
+API_KEY <- "<your_api_key>"
+
+# Function to make API request and parse response
+make_api_request <- function(url) {
+  response <- GET(url)
+  if (http_type(response) != "application/json") {
+    stop("API request failed")
+  }
+  content(response, "parsed")
+}
+
+# Read city name
 city <- readline("Enter your city: ")
+if (city == "") {
+  stop("City name cannot be empty")
+}
 
 # URL encode the city name
 city <- URLencode(city)
 
-# Replace with your actual API key
-api_key <- "<your_api_key>"
-
 # Construct the API URL
-url <- paste0("http://api.openweathermap.org/geo/1.0/direct?q=", city, "&limit=1&appid=", api_key)
+url <- paste0(BASE_URL_GEO, "?q=", city, "&limit=1&appid=", API_KEY)
 
 # Make the API request
-response <- GET(url)
-
-# Parse the response to JSON
-content <- content(response, "parsed")
+content <- make_api_request(url)
 
 # Extract latitude and longitude
 lat <- content[[1]]$lat
@@ -28,13 +40,10 @@ print(paste("City: ", name, ", Country: ", country))
 print(paste("Latitude: ", lat, ", Longitude: ", lon))
 
 # Define the URL for the weather API
-weather_url <- paste0("https://api.openweathermap.org/data/2.5/weather?lat=", lat, "&lon=", lon, "&appid=", api_key)
+weather_url <- paste0(BASE_URL_WEATHER, "?lat=", lat, "&lon=", lon, "&appid=", API_KEY)
 
 # Make the GET request
-weather_response <- GET(weather_url)
-
-# Print the weather response
-weather_content <- content(weather_response, "parsed")
+weather_content <- make_api_request(weather_url)
 
 # Extract the weather
 weather <- weather_content$weather[[1]]$main

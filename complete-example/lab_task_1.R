@@ -7,3 +7,12 @@ employee_data <- data.frame(
 
 # Write the data to a CSV file
 write.csv(employee_data, "employee_data.csv", row.names = FALSE)
+
+#Generate department data with the manager of each department
+department_data <- data.frame(
+    department = c("Engineering", "Marketing", "Human Resources"),
+    manager = c("John Doe", "Jane Smith", "Alice Johnson")
+)
+
+# Write the data to a CSV file
+write.csv(department_data, "department_data.csv", row.names = FALSE)

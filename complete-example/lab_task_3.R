@@ -1,10 +1,10 @@
 # Read the CSV data into R
-employee_data <- read.csv("employee_data.csv")
-
-print(employee_data)
+employee_data <- read.csv("employee_data_with_manager.csv")
 
 # Group the data by department and calculate the count of employees in each department
 employee_count <- table(employee_data$department)
+
+print(employee_count)
 
 # Define colors for each bar
 colors <- rainbow(length(employee_count))

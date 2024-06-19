@@ -1,7 +1,7 @@
 # GitHub Copilot Lab in R
 
 ## Introduction
-In this lab, we will use GitHub Copilot to assist us in performing common R tasks. We will generate a CSV file containing employee data, read the data into R, perform some data manipulation and analysis, and finally visualize the data.
+In this lab, we will use GitHub Copilot to assist us in performing a variety of R tasks, such as generating data, data manipulation, data analysis, pulling data from REST API's, refactoring code and using R to build a predictive ML model.
 
 ## Prerequisites
 - Basic knowledge of R programming
@@ -9,9 +9,7 @@ In this lab, we will use GitHub Copilot to assist us in performing common R task
 - GitHub Copilot extension installed in Visual Studio Code
 
 ## Lab Tasks
-For each of the tasks in this section use either Copilot Chat or the Copilot in-line popup (CTRL + I on Windows or Command + I on macOS) to generate the code. 
-
-You can see an example of what the code should look like by clicking *Reveal Code*, but to get the most out of these tasks you should refrain from looking at the code.
+For each of the tasks in this section use either inline completions (ghost text), Copilot Chat or the Copilot in-line popup (CTRL + I on Windows or Command + I on macOS) to generate the code. 
 
 ### Task 1: Generating Employee & Department CSV Data
 We will start by generating a CSV file containing employee data. The data will include employee names, departments, and dates of join.

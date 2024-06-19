@@ -90,5 +90,73 @@ legend("topright", legend = names(employee_count), fill = colors, cex = 0.8)
 
 </details>
 
+### Task 7: Register an account and retrieve weather data
+
+In this task, you will interact with the OpenWeatherMap API to retrieve weather data for a specific city.
+
+1. Register an account at [OpenWeatherMap](https://openweathermap.org/).
+2. Once you have registered, navigate to the API keys section and generate a new API key.
+3. In your R environment, read a city name from the command line.
+4. Use the Geocoding API to convert the city name to latitude and longitude. The API endpoint is `http://api.openweathermap.org/geo/1.0/direct?q={city name}&limit={limit}&appid={API key}`. Replace `{city name}` with the city name you read from the command line, `{limit}` with 1, and `{API key}` with your actual API key.
+5. Use the Current Weather Data API to retrieve the current weather for the latitude and longitude you obtained in the previous step. The API endpoint is `http://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}`. Replace `{lat}` and `{lon}` with the latitude and longitude you obtained, and `{API key}` with your actual API key.
+6. Print the weather data to the console.
+
+Note: All the APIs used in this task are free. No paid APIs are required.
+
+<details>
+<summary>Reveal Code</summary>
+
+```r
+install.packages("httr")
+library(httr)
+
+city <- readline("Enter your city: ")
+
+# URL encode the city name
+city <- URLencode(city)
+
+# Replace with your actual API key
+api_key <- "<your_api_key>"
+
+# Construct the API URL
+url <- paste0("http://api.openweathermap.org/geo/1.0/direct?q=", city, "&limit=1&appid=", api_key)
+
+# Make the API request
+response <- GET(url)
+
+# Parse the response to JSON
+content <- content(response, "parsed")
+
+# Extract latitude and longitude
+lat <- content[[1]]$lat
+lon <- content[[1]]$lon
+name <- content[[1]]$name
+country <- content[[1]]$country
+
+print(paste("City: ", name, ", Country: ", country))
+print(paste("Latitude: ", lat, ", Longitude: ", lon))
+
+# Define the URL for the weather API
+weather_url <- paste0("https://api.openweathermap.org/data/2.5/weather?lat=", lat, "&lon=", lon, "&appid=", api_key)
+
+# Make the GET request
+weather_response <- GET(weather_url)
+
+# Print the weather response
+weather_content <- content(weather_response, "parsed")
+
+# Extract the weather
+weather <- weather_content$weather[[1]]$main
+
+# Extract the temperature and convert it from Kelvin to Celsius
+temperature <- weather_content$main$temp - 273.15
+
+# Print the weather and temperature
+print(paste("Weather in ", city, ": ", weather))
+print(paste("Temperature in ", city, ": ", round(temperature, 2), "°C"))
+```
+
+</details>
+
 ### Conclusion
 In this lab, we used GitHub Copilot to assist us in performing common R tasks. We generated a CSV file containing employee data, read the data into R, performed some data manipulation and analysis, and visualized the data. We hope you found this lab helpful and learned something new!

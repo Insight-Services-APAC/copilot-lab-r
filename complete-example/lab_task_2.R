@@ -1,3 +1,6 @@
+install.packages("dplyr") 
+library(dplyr)
+
 # Read the CSV data into R
 employee_data <- read.csv("employee_data.csv")
 
@@ -30,3 +33,10 @@ print(employee_data)
 
 # Write the employee data with manager to CSV
 write.csv(employee_data, "employee_data_with_manager.csv", row.names = FALSE)
+
+# Use method chaining to filter on manager "CEO" and sort by date of join in descending order
+filtered_data <- employee_data %>%
+    filter(manager == "CEO") %>%
+    arrange(desc(date_of_join))
+
+print(filtered_data)

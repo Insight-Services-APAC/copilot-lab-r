@@ -21,6 +21,8 @@ Next, we will read the employee CSV data into R using the read.csv() function, t
 
 Now read in the departments CSV data, join the two datasets together, then output to a combined employee CSV file that includes each employees manager. If an employee is the manager for the department or the department has no manager output their manager as "CEO".
 
+Try asking Copilot how you can use method chaining to filter where manager is the CEO and descending sort the employees by date of join, outputting the result.
+
 ### Task 3: Data Analysis & Visualization
 
 In this task we will do some data analysis and visualization. Start by reading in the new employee CSV from task 2, try grouping the data by department, and calculating the count of employees in each department.

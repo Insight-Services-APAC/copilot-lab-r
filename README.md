@@ -1,3 +1,6 @@
+> [!IMPORTANT]  
+> **NOTE:** This content is now maintained in the [GitHub-Insight-ANZ-Lab/copilot-lab-r](https://github.com/GitHub-Insight-ANZ-Lab/copilot-lab-r) repository
+> 
 # GitHub Copilot Lab in R
 
 ## Introduction
